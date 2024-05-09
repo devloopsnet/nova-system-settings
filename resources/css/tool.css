@@ -1,0 +1,16 @@
+/* Nova Tool CSS */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .rounded-none {
+        border-radius: 0;
+    }
+
+    * {
+        @apply rounded-none;
+    }
+}
+

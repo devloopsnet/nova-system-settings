@@ -1,0 +1,30 @@
+{
+    "name": "devloops/nova-system-settings",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-settings": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devloops\\NovaSystemSettings\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devloops\\NovaSystemSettings\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
