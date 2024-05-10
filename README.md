@@ -1,4 +1,4 @@
-[//]: # (![Laravel Nova System Settings Tool]&#40;https://i.ibb.co/c8Mb2bh/Nova-Phone-Number.jpg&#41;)
+![Laravel Nova System Settings Tool](https://banners.beyondco.de/Laravel%20Nova%20System%20Settings.png?theme=dark&packageManager=composer+require&packageName=devloops%2Fnova-system-settings&pattern=architect&style=style_2&description=The+missing+Laravel+Nova+System+Settings+Tool&md=1&showWatermark=0&fontSize=100px&images=cog&widths=350)
 
 [![Latest Version on Packagist](https://poser.pugx.org/devloops/nova-system-settings/v/stable?format=flat-square&color=#0E7FC0)](https://packagist.org/packages/devloops/nova-system-settings)
 [![License](https://poser.pugx.org/devloops/nova-system-settings/license?format=flat-square)](https://packagist.org/packages/devloops/nova-system-settings)
