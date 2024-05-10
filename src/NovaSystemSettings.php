@@ -14,6 +14,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Devloops\NovaSystemSettings\Components\Settings;
 use Devloops\NovaSystemSettings\Contracts\SystemSettings;
 use Devloops\NovaSystemSettings\Contracts\SettingsContract;
+use Spatie\LaravelSettings\SettingsMapper as SpatieSettingsMapper;
 use Devloops\NovaSystemSettings\Http\Requests\SaveSettingsRequest;
 
 /**
@@ -61,9 +62,9 @@ class NovaSystemSettings extends Tool
      */
     public function menu(Request $request): mixed
     {
-        return MenuSection::make('System Settings')
+        return MenuSection::make(__('System Settings'))
                           ->path('/system-settings')
-                          ->icon('server');
+                          ->icon('cog');
     }
 
     /**

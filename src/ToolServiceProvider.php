@@ -2,13 +2,13 @@
 
 namespace Devloops\NovaSystemSettings;
 
+use Laravel\Nova\Nova;
+use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Http\Middleware\Authenticate;
-use Laravel\Nova\Nova;
 use Devloops\NovaSystemSettings\Http\Middleware\Authorize;
-use Devloops\NovaSystemSettings\Events\GatherSystemSettings;
+use Spatie\LaravelSettings\SettingsMapper as SpatieSettingsMapper;
 
 /**
  * Class ToolServiceProvider.
@@ -32,6 +32,7 @@ class ToolServiceProvider extends ServiceProvider
 
         Nova::serving(static function (ServingNova $event) {
         });
+        $this->app->bind(SpatieSettingsMapper::class, SettingsMapper::class);
     }
 
     /**
@@ -60,6 +61,5 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
     }
 }

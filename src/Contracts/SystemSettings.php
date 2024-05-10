@@ -3,9 +3,9 @@
 namespace Devloops\NovaSystemSettings\Contracts;
 
 use Laravel\Nova\Makeable;
+use Spatie\LaravelSettings\SettingsMapper;
 use Devloops\NovaSystemSettings\Components\Settings;
 use Spatie\LaravelSettings\Settings as SpatieSettings;
-use Spatie\LaravelSettings\Exceptions\MissingSettings;
 use Devloops\NovaSystemSettings\Traits\ManeuversSettingsMigration;
 
 /**
@@ -32,28 +32,39 @@ abstract class SystemSettings extends SpatieSettings
      *
      * @return string
      */
-    abstract public function title(): string;
+    abstract public static function title(): string;
 
     /**
      * Get system settings icon.
      *
      * @return string
      */
-    abstract public function icon(): string;
+    abstract public static function icon(): string;
 
     /**
      * Get system settings name.
      *
      * @return string
      */
-    abstract public function name(): string;
+    abstract public static function name(): string;
 
     /**
      * Return system settings fields.
      *
      * @return array
      */
-    abstract public function fields(): array;
+    abstract public static function fields(): array;
+
+
+    /**
+     * Get the full group name.
+     *
+     * @return string
+     */
+    private function getGroup(): string
+    {
+        return sprintf('%s.%s', static::group(), static::name());
+    }
 
     /**
      * Construct a settings component.
@@ -63,7 +74,7 @@ abstract class SystemSettings extends SpatieSettings
     public function getSettingsComponent(): SettingsContract
     {
         if ($this->settings === null) {
-            $this->settings = Settings::make($this->title(), $this->icon(), $this->fields(), $this);
+            $this->settings = Settings::make(static::title(), static::icon(), static::fields(), $this);
         }
         return $this->settings;
     }
@@ -80,7 +91,7 @@ abstract class SystemSettings extends SpatieSettings
                  ->getFieldsKeys() as $fieldKey
         ) {
             $this->getRepository()
-                 ->createProperty(static::group(), $fieldKey, null);
+                 ->createProperty($this->getGroup(), $fieldKey, null);
         }
     }
 }
