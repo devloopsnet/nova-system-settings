@@ -15,7 +15,7 @@ It has a straightforward, Nova-Like implementation, and it was built over spatie
 ## Installation
 
 ```
-composer require devloopsnet/nova-system-settings
+composer require devloops/nova-system-settings
 ```
 
 ## Implementation
