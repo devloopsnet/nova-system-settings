@@ -5,8 +5,10 @@ namespace Devloops\NovaSystemSettings\Http\Controllers;
 use Exception;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
+use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 use Spatie\LaravelSettings\SettingsConfig;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Devloops\NovaSystemSettings\NovaSystemSettings;
@@ -75,6 +77,11 @@ class ApiController extends Controller
                     if ($cast !== null) {
                         $settings->{$settingsKey} = $settingsConfig->getCast($settingsKey)
                                                                    ?->get($request->input($settingsKey));
+                    } elseif ($file = $request->file($settingsKey)) {
+                        $path = sprintf('%s/%s/%s', $settings::group(), $settings::name(), strtolower(Str::of($settingsKey)
+                                                                                                         ->ucsplit()
+                                                                                                         ->join('_')));
+                        $settings->{$settingsKey} = $file->store($path);
                     } else {
                         $settings->{$settingsKey} = $request->input($settingsKey);
                     }

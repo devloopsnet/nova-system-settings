@@ -55,7 +55,6 @@ abstract class SystemSettings extends SpatieSettings
      */
     abstract public static function fields(): array;
 
-
     /**
      * Get the full group name.
      *

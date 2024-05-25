@@ -56,22 +56,22 @@ class SiteSettings extends SystemSettings
         return 'general';
     }
 
-    public function title(): string
+    public static function title(): string
     {
         return __('Site Settings');
     }
 
-    public function icon(): string
+    public static function icon(): string
     {
         return 'cog';
     }
 
-    public function name(): string
+    public static function name(): string
     {
         return 'site_settings';
     }
 
-    public function fields(): array
+    public static function fields(): array
     {
         return [
             Text::make(__('Site Title'), 'title'),
@@ -115,22 +115,22 @@ class MailSettings extends SystemSettings
         return 'general';
     }
 
-    public function title(): string
+    public static function title(): string
     {
         return __('Mail Settings');
     }
 
-    public function icon(): string
+    public static function icon(): string
     {
         return 'mail';
     }
 
-    public function name(): string
+    public static function name(): string
     {
         return 'mail_settings';
     }
 
-    public function fields(): array
+    public static function fields(): array
     {
         return [
             Select::make(__('Mailer'), 'mail')
@@ -177,22 +177,22 @@ class OrderSettings extends SystemSettings
         return 'store';
     }
 
-    public function title(): string
+    public static function title(): string
     {
         return __('Order Settings');
     }
 
-    public function icon(): string
+    public static function icon(): string
     {
         return 'shopping-cart';
     }
 
-    public function name(): string
+    public static function name(): string
     {
         return 'order_settings';
     }
 
-    public function fields(): array
+    public static function fields(): array
     {
         return [
             Number::make(__('Minimum Order'), 'minOrder'),
@@ -226,22 +226,22 @@ class CustomerSettings extends SystemSettings
         return 'store';
     }
 
-    public function title(): string
+    public static function title(): string
     {
         return __('Customer Settings');
     }
 
-    public function icon(): string
+    public static function icon(): string
     {
         return 'user';
     }
 
-    public function name(): string
+    public static function name(): string
     {
         return 'customer_settings';
     }
 
-    public function fields(): array
+    public static function fields(): array
     {
         return [
             Select::make(__('Login Via'))
@@ -268,32 +268,32 @@ The above classes implements five methods that are abstractly inherited from the
     abstract public static function group(): string;
 
     /**
-     * Get system settings title which will be printed in the Tab.
+     * Get system settings title.
      *
      * @return string
      */
-    abstract public function title(): string;
+    abstract public static function title(): string;
 
     /**
-     * Get system settings icon which will be placed before the title.
+     * Get system settings icon.
      *
      * @return string
      */
-    abstract public function icon(): string;
+    abstract public static function icon(): string;
 
     /**
-     * Get system settings name which will be used to internally identify the settings.
+     * Get system settings name.
      *
      * @return string
      */
-    abstract public function name(): string;
+    abstract public static function name(): string;
 
     /**
      * Return system settings fields.
      *
      * @return array
      */
-    abstract public function fields(): array;
+    abstract public static function fields(): array;
 ```
 
 The comments on the methods tells each methods goal.
