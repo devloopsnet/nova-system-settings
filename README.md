@@ -8,9 +8,9 @@
 
 This packages saves the times for you when creating the system settings part of your project, it handles the UI in a very 
 intuitive convenient way.
-It has a straightforward, Nova-Like implementation, and it was built over spatie's [laravel-settings](https://github.com/spatie/laravel-settings) package.
+It has a straightforward, Nova-Like implementation, and it was built over Spatie's [laravel-settings](https://github.com/spatie/laravel-settings) package.
 
-* A look at spatie's package [docs](https://github.com/spatie/laravel-settings?tab=readme-ov-file#usage) is needed to keep track of how things are going.
+* A look at Spatie's package [docs](https://github.com/spatie/laravel-settings?tab=readme-ov-file#usage) is needed to keep track of how things are going.
 
 ## Installation
 
@@ -21,7 +21,7 @@ composer require devloops/nova-system-settings
 ## Implementation
 
 The usage of this package is very simple as creating a class that extends ``Devloops\NovaSystemSettings\Contracts\SystemSettings`` abstract class, which itself 
-extends the ``Spatie\LaravelSettings\Settings`` class of spatie's laravel-settings packages, then register the tool inside the ``NovaServiceProvider``
+extends the ``Spatie\LaravelSettings\Settings`` class of Spatie's laravel-settings packages, then register the tool inside the ``NovaServiceProvider``
 giving it an array of the settings you defined for your system.
 
 Below is a full of example
@@ -336,7 +336,7 @@ return [
 ];
 ```
 
-5- System settings internal usage is pretty simple, as spatie's laravel-settings package behaves, you can simply use 
+5- System settings internal usage is pretty simple, as Spatie's laravel-settings package behaves, you can simply use 
 dependency injection to inject the settings class in either your services, controllers, repositories or any other place in your system.
 
 ```php
